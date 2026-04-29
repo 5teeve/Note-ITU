@@ -137,25 +137,16 @@ class NotesModel extends Model
         $db = \Config\Database::connect();
         
         // Récupérer les UE directes du semestre
-        $directUEs = $db->table('ue')
-            ->join('programme', 'ue.id = programme.ue_id')
-            ->join('semestre', 'programme.semestre_id = semestre.id')
-            ->where('semestre.numero', $semestNumber)
-            ->where('programme.ue_id IS NOT NULL')
-            ->select('DISTINCT ue.id, ue.code, ue.libelle, ue.credits')
-            ->get()
-            ->getResultArray();
+        $directUEs = $db->query(
+            "SELECT DISTINCT ue.id, ue.code, ue.libelle, ue.credits FROM ue JOIN programme ON ue.id = programme.ue_id JOIN semestre ON programme.semestre_id = semestre.id WHERE semestre.numero = ? AND programme.ue_id IS NOT NULL ORDER BY ue.libelle ASC",
+            [$semestNumber]
+        )->getResultArray();
 
         // Récupérer les UE via les groupes d'UE du semestre
-        $groupUEs = $db->table('ue')
-            ->join('groupe_ue_element', 'ue.id = groupe_ue_element.ue_id')
-            ->join('groupe_ue', 'groupe_ue_element.groupe_ue_id = groupe_ue.id')
-            ->join('programme', 'groupe_ue.id = programme.groupe_ue_id')
-            ->join('semestre', 'programme.semestre_id = semestre.id')
-            ->where('semestre.numero', $semestNumber)
-            ->select('DISTINCT ue.id, ue.code, ue.libelle, ue.credits')
-            ->get()
-            ->getResultArray();
+        $groupUEs = $db->query(
+            "SELECT DISTINCT ue.id, ue.code, ue.libelle, ue.credits FROM ue JOIN groupe_ue_element ON ue.id = groupe_ue_element.ue_id JOIN groupe_ue ON groupe_ue_element.groupe_ue_id = groupe_ue.id JOIN programme ON groupe_ue.id = programme.groupe_ue_id JOIN semestre ON programme.semestre_id = semestre.id WHERE semestre.numero = ? ORDER BY ue.libelle ASC",
+            [$semestNumber]
+        )->getResultArray();
 
         // Fusionner et dédupliquer
         $allUEs = array_merge($directUEs, $groupUEs);
@@ -168,11 +159,6 @@ class NotesModel extends Model
                 $uniqueUEs[] = $ue;
             }
         }
-
-        // Trier par libellé
-        usort($uniqueUEs, function($a, $b) {
-            return strcmp($a['libelle'], $b['libelle']);
-        });
 
         return $uniqueUEs;
     }
