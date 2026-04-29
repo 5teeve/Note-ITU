@@ -1,11 +1,15 @@
-create database note;
-use note;
+CREATE DATABASE IF NOT EXISTS note;
+USE note;
+
+-- =========================
+-- DROP TABLES (ordre correct)
+-- =========================
 DROP TABLE IF EXISTS note;
-DROP TABLE IF EXISTS etudiant;
 DROP TABLE IF EXISTS programme;
 DROP TABLE IF EXISTS groupe_ue_element;
 DROP TABLE IF EXISTS groupe_ue;
 DROP TABLE IF EXISTS ue;
+DROP TABLE IF EXISTS etudiant;
 DROP TABLE IF EXISTS semestre;
 DROP TABLE IF EXISTS parcours;
 
@@ -23,25 +27,12 @@ CREATE TABLE semestre (
     numero INT
 );
 
-
 CREATE TABLE etudiant (
     id INT PRIMARY KEY AUTO_INCREMENT,
     numero_etu VARCHAR(50) UNIQUE NOT NULL,
     nom VARCHAR(255) NOT NULL,
     prenom VARCHAR(255) NOT NULL
 );
-
--- =========================
--- ETUDIANTS D'EXEMPLE
--- =========================
-INSERT INTO etudiant (numero_etu, nom, prenom) VALUES
-('ETU0001', 'Randriamampionona', 'Feno'),
-('ETU0002', 'Rakotoarisoa', 'Miora'),
-('ETU0003', 'Rasoanaivo', 'Tiana'),
-('ETU0004', 'Andrianarivelo', 'Hery'),
-('ETU0005', 'Ramanantsoa', 'Soa');
-
-
 
 CREATE TABLE ue (
     id INT PRIMARY KEY,
@@ -52,15 +43,14 @@ CREATE TABLE ue (
 
 CREATE TABLE note (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    note DECIMAL(5, 2),
+    note DECIMAL(5,2),
     ue_id INT NOT NULL,
     id_etudiant INT NOT NULL,
     semestre_id INT NOT NULL,
+    FOREIGN KEY (ue_id) REFERENCES ue(id),
     FOREIGN KEY (id_etudiant) REFERENCES etudiant(id),
-    FOREIGN KEY (semestre_id) REFERENCES semestre(id),
-    FOREIGN KEY (ue_id) REFERENCES ue(id)
+    FOREIGN KEY (semestre_id) REFERENCES semestre(id)
 );
-
 
 CREATE TABLE groupe_ue (
     id INT PRIMARY KEY,
@@ -109,34 +99,44 @@ INSERT INTO semestre VALUES
 (2, 4);
 
 -- =========================
+-- ETUDIANTS
+-- =========================
+INSERT INTO etudiant (numero_etu, nom, prenom) VALUES
+('ETU0001', 'Randriamampionona', 'Feno'),
+('ETU0002', 'Rakotoarisoa', 'Miora'),
+('ETU0003', 'Rasoanaivo', 'Tiana'),
+('ETU0004', 'Andrianarivelo', 'Hery'),
+('ETU0005', 'Ramanantsoa', 'Soa');
+
+-- =========================
 -- UE
 -- =========================
 INSERT INTO ue VALUES
-(1, 'INF201', 'Programmation orientée objet', 6),
-(2, 'INF202', 'Bases de données objets', 6),
-(3, 'INF203', 'Programmation système', 4),
-(4, 'INF208', 'Réseaux informatiques', 6),
+(1, 'INF201', 'POO', 6),
+(2, 'INF202', 'BD Objet', 6),
+(3, 'INF203', 'Système', 4),
+(4, 'INF208', 'Réseaux', 6),
 (5, 'MTH201', 'Méthodes numériques', 4),
-(6, 'ORG201', 'Bases de gestion', 4),
+(6, 'ORG201', 'Gestion', 4),
 
-(7, 'INF204', 'Système d''information géographique', 6),
-(8, 'INF205', 'Système d''information', 6),
-(9, 'INF206', 'Interface Homme/Machine', 6),
-(10, 'INF207', 'Eléments d''algorithmique', 6),
+(7, 'INF204', 'SIG', 6),
+(8, 'INF205', 'SI', 6),
+(9, 'INF206', 'IHM', 6),
+(10, 'INF207', 'Algo', 6),
 (11, 'INF209', 'Web dynamique', 6),
 
-(12, 'INF210', 'Mini-projet de développement', 10),
-(13, 'INF211', 'Mini-projet BD/Réseaux', 10),
-(14, 'INF212', 'Mini-projet Web & Design', 10),
+(12, 'INF210', 'Mini Dev', 10),
+(13, 'INF211', 'Mini BD', 10),
+(14, 'INF212', 'Mini Web', 10),
 
-(15, 'MTH202', 'Analyse des données', 4),
+(15, 'MTH202', 'Analyse données', 4),
 (16, 'MTH203', 'MAO', 4),
 (17, 'MTH204', 'Géométrie', 4),
-(18, 'MTH205', 'Equations différentielles', 4),
+(18, 'MTH205', 'EDO', 4),
 (19, 'MTH206', 'Optimisation', 4);
 
 -- =========================
--- SEMESTRE 3 (COMMUN)
+-- PROGRAMME S3 (COMMUN)
 -- =========================
 INSERT INTO programme VALUES
 (1, 1, 1, 1, NULL),
@@ -147,11 +147,11 @@ INSERT INTO programme VALUES
 (6, 1, 1, 6, NULL);
 
 -- =========================
--- GROUPES S4 - DEV
+-- GROUPES DEV S4
 -- =========================
 INSERT INTO groupe_ue VALUES
-(1, 'DEV - Choix Info (6 crédits)', 1),
-(2, 'DEV - Choix Math (4 crédits)', 1);
+(1, 'DEV Info', 1),
+(2, 'DEV Maths', 1);
 
 INSERT INTO groupe_ue_element VALUES
 (1, 1, 7),
@@ -170,23 +170,24 @@ INSERT INTO programme VALUES
 (10, 1, 2, NULL, 1),
 (11, 1, 2, 12, NULL),
 (12, 1, 2, NULL, 2),
-(33, 1, 2, 16, NULL); -- MAO obligatoire
+(13, 1, 2, 8, NULL),
+(14, 1, 2, 16, NULL);
 
 -- =========================
--- GROUPES S4 - BD/RÉSEAUX
+-- GROUPES BDR S4
 -- =========================
 INSERT INTO groupe_ue VALUES
-(3, 'BDR - Choix Info (6 crédits)', 1),
-(4, 'BDR - Choix Math (4 crédits)', 1);
+(3, 'BDR Info', 1),
+(4, 'BDR Maths', 1);
 
 INSERT INTO groupe_ue_element VALUES
-(9, 3, 7),
-(10, 3, 9),
-(11, 3, 10),
+(8, 3, 7),
+(9, 3, 9),
+(10, 3, 10),
 
-(12, 4, 15),
-(13, 4, 18),
-(14, 4, 19);
+(11, 4, 15),
+(12, 4, 18),
+(13, 4, 19);
 
 -- =========================
 -- PROGRAMME BDR S4
@@ -196,24 +197,24 @@ INSERT INTO programme VALUES
 (21, 2, 2, NULL, 3),
 (22, 2, 2, 13, NULL),
 (23, 2, 2, NULL, 4),
-(34, 2, 2, 16, NULL); -- MAO obligatoire
+(24, 2, 2, 16, NULL);
 
 -- =========================
--- GROUPES S4 - WEB & DESIGN
+-- GROUPES WEB S4
 -- =========================
 INSERT INTO groupe_ue VALUES
-(5, 'WEB - Choix Info (6 crédits)', 1),
-(6, 'WEB - Choix Math (4 crédits)', 1);
+(5, 'WEB Info', 1),
+(6, 'WEB Maths', 1);
 
 INSERT INTO groupe_ue_element VALUES
-(16, 5, 7),
-(17, 5, 8),
-(18, 5, 9),
-(19, 5, 11),
+(14, 5, 7),
+(15, 5, 8),
+(16, 5, 9),
+(17, 5, 11),
 
-(20, 6, 15),
-(21, 6, 17),
-(22, 6, 19);
+(18, 6, 15),
+(19, 6, 17),
+(20, 6, 19);
 
 -- =========================
 -- PROGRAMME WEB S4
@@ -222,14 +223,5 @@ INSERT INTO programme VALUES
 (30, 3, 2, NULL, 5),
 (31, 3, 2, 14, NULL),
 (32, 3, 2, NULL, 6),
-(35, 3, 2, 16, NULL); -- MAO obligatoire
-
--- =========================
--- ETUDIANTS D'EXEMPLE
--- =========================
-INSERT INTO etudiant (numero_etu, nom, prenom) VALUES
-('ETU0001', 'Randriamampionona', 'Feno'),
-('ETU0002', 'Rakotoarisoa', 'Miora'),
-('ETU0003', 'Rasoanaivo', 'Tiana'),
-('ETU0004', 'Andrianarivelo', 'Hery'),
-('ETU0005', 'Ramanantsoa', 'Soa');
+(33, 3, 2, 11, NULL),
+(34, 3, 2, 16, NULL);

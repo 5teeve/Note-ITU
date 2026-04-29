@@ -64,4 +64,41 @@ class Notes extends BaseController
         $notes = $model->getAllNotes();
         return view('list', ['notes' => $notes]);
     }
+    /**
+     * Affiche le relevé de notes d'un étudiant
+     */
+    public function releve($id_etudiant)
+    {
+        $model = model('App\\Models\\ReleveNotesModel');
+        $parcoursModel = model('App\\Models\\ParcoursModel');
+        $semestreModel = model('App\\Models\\SemestreModel');
+        $etudiantModel = model('App\\Models\\EtudiantModel');
+
+        $etudiant = $etudiantModel->where('id', $id_etudiant)->first();
+        $parcoursList = $parcoursModel->findAll();
+        $semestresList = $semestreModel->findAll();
+
+        // Récupérer les filtres depuis GET
+        $parcours_id = $this->request->getGet('parcours_id');
+        $semestre_id = $this->request->getGet('semestre_id');
+
+        $builder = $model->where('id_etudiant', $id_etudiant);
+        if ($parcours_id) {
+            $builder = $builder->where('parcours_id', $parcours_id);
+        }
+        if ($semestre_id) {
+            $builder = $builder->where('semestre_id', $semestre_id);
+        }
+        $releves = $builder->findAll();
+
+        return view('releve_note', [
+            'releves' => $releves,
+            'id_etudiant' => $id_etudiant,
+            'etudiant' => $etudiant,
+            'parcoursList' => $parcoursList,
+            'semestresList' => $semestresList,
+            'parcours_id' => $parcours_id,
+            'semestre_id' => $semestre_id
+        ]);
+    }
 }

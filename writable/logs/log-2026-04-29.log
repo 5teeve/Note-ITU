@@ -1138,3 +1138,283 @@ in APPPATH/Views/form.php on line 232.
  9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
 10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
 11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-04-29 08:06:22 --> CodeIgniter\Exceptions\ModelException: "App\Models\ReleveNotesModel" model class does not specify a Primary Key.
+[Method: GET, Route: notes/releve/1]
+in SYSTEMPATH/Model.php on line 591.
+ 1 SYSTEMPATH/Model.php(591): CodeIgniter\Exceptions\ModelException::forNoPrimaryKey()
+ 2 SYSTEMPATH/Model.php(751): CodeIgniter\Model->builder()
+ 3 APPPATH/Controllers/Notes.php(73): CodeIgniter\Model->__call()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Notes->releve()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-04-29 08:06:24 --> CodeIgniter\Exceptions\ModelException: "App\Models\ReleveNotesModel" model class does not specify a Primary Key.
+[Method: GET, Route: notes/releve/1]
+in SYSTEMPATH/Model.php on line 591.
+ 1 SYSTEMPATH/Model.php(591): CodeIgniter\Exceptions\ModelException::forNoPrimaryKey()
+ 2 SYSTEMPATH/Model.php(751): CodeIgniter\Model->builder()
+ 3 APPPATH/Controllers/Notes.php(73): CodeIgniter\Model->__call()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Notes->releve()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-04-29 08:06:25 --> CodeIgniter\Exceptions\ModelException: "App\Models\ReleveNotesModel" model class does not specify a Primary Key.
+[Method: GET, Route: notes/releve/1]
+in SYSTEMPATH/Model.php on line 591.
+ 1 SYSTEMPATH/Model.php(591): CodeIgniter\Exceptions\ModelException::forNoPrimaryKey()
+ 2 SYSTEMPATH/Model.php(751): CodeIgniter\Model->builder()
+ 3 APPPATH/Controllers/Notes.php(73): CodeIgniter\Model->__call()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Notes->releve()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ERROR - 2026-04-29 08:06:34 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' in /home/omen-hp-pc/S4/Systeme_d_info/Note-ITU/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /home/omen-hp-pc/S4/Systeme_d_info/Note-ITU/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#1 /home/omen-hp-pc/S4/Systeme_d_info/Note-ITU/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /home/omen-hp-pc/S4/Systeme_d_info/Note-ITU/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /home/omen-hp-pc/S4/Systeme_d_info/Note-ITU/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /home/omen-hp-pc/S4/Systeme_d_info/Note-ITU/app/Models/NotesModel.php(128): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/omen-hp-pc/S4/Systeme_d_info/Note-ITU/app/Controllers/Home.php(26): App\Models\NotesModel->getAllUE()
+#6 /home/omen-hp-pc/S4/Systeme_d_info/Note-ITU/system/CodeIgniter.php(951): App\Controllers\Home->form()
+#7 /home/omen-hp-pc/S4/Systeme_d_info/Note-ITU/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#8 /home/omen-hp-pc/S4/Systeme_d_info/Note-ITU/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#9 /home/omen-hp-pc/S4/Systeme_d_info/Note-ITU/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 /home/omen-hp-pc/S4/Systeme_d_info/Note-ITU/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#11 /home/omen-hp-pc/S4/Systeme_d_info/Note-ITU/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' in /home/omen-hp-pc/S4/Systeme_d_info/Note-ITU/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /home/omen-hp-pc/S4/Systeme_d_info/Note-ITU/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /home/omen-hp-pc/S4/Systeme_d_info/Note-ITU/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home/omen-hp-pc/S4/Systeme_d_info/Note-ITU/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#3 /home/omen-hp-pc/S4/Systeme_d_info/Note-ITU/app/Models/NotesModel.php(128): CodeIgniter\Database\BaseBuilder->get()
+#4 /home/omen-hp-pc/S4/Systeme_d_info/Note-ITU/app/Controllers/Home.php(26): App\Models\NotesModel->getAllUE()
+#5 /home/omen-hp-pc/S4/Systeme_d_info/Note-ITU/system/CodeIgniter.php(951): App\Controllers\Home->form()
+#6 /home/omen-hp-pc/S4/Systeme_d_info/Note-ITU/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#7 /home/omen-hp-pc/S4/Systeme_d_info/Note-ITU/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#8 /home/omen-hp-pc/S4/Systeme_d_info/Note-ITU/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#9 /home/omen-hp-pc/S4/Systeme_d_info/Note-ITU/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#10 /home/omen-hp-pc/S4/Systeme_d_info/Note-ITU/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#11 {main}
+CRITICAL - 2026-04-29 08:06:34 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost'
+[Method: GET, Route: form]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 3 APPPATH/Models/NotesModel.php(128): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH/Controllers/Home.php(26): App\Models\NotesModel->getAllUE()
+ 5 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Home->form()
+ 6 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ERROR - 2026-04-29 08:06:39 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' in /home/omen-hp-pc/S4/Systeme_d_info/Note-ITU/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /home/omen-hp-pc/S4/Systeme_d_info/Note-ITU/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#1 /home/omen-hp-pc/S4/Systeme_d_info/Note-ITU/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /home/omen-hp-pc/S4/Systeme_d_info/Note-ITU/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /home/omen-hp-pc/S4/Systeme_d_info/Note-ITU/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /home/omen-hp-pc/S4/Systeme_d_info/Note-ITU/app/Models/NotesModel.php(128): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/omen-hp-pc/S4/Systeme_d_info/Note-ITU/app/Controllers/Home.php(26): App\Models\NotesModel->getAllUE()
+#6 /home/omen-hp-pc/S4/Systeme_d_info/Note-ITU/system/CodeIgniter.php(951): App\Controllers\Home->form()
+#7 /home/omen-hp-pc/S4/Systeme_d_info/Note-ITU/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#8 /home/omen-hp-pc/S4/Systeme_d_info/Note-ITU/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#9 /home/omen-hp-pc/S4/Systeme_d_info/Note-ITU/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 /home/omen-hp-pc/S4/Systeme_d_info/Note-ITU/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#11 /home/omen-hp-pc/S4/Systeme_d_info/Note-ITU/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' in /home/omen-hp-pc/S4/Systeme_d_info/Note-ITU/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /home/omen-hp-pc/S4/Systeme_d_info/Note-ITU/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /home/omen-hp-pc/S4/Systeme_d_info/Note-ITU/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home/omen-hp-pc/S4/Systeme_d_info/Note-ITU/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#3 /home/omen-hp-pc/S4/Systeme_d_info/Note-ITU/app/Models/NotesModel.php(128): CodeIgniter\Database\BaseBuilder->get()
+#4 /home/omen-hp-pc/S4/Systeme_d_info/Note-ITU/app/Controllers/Home.php(26): App\Models\NotesModel->getAllUE()
+#5 /home/omen-hp-pc/S4/Systeme_d_info/Note-ITU/system/CodeIgniter.php(951): App\Controllers\Home->form()
+#6 /home/omen-hp-pc/S4/Systeme_d_info/Note-ITU/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#7 /home/omen-hp-pc/S4/Systeme_d_info/Note-ITU/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#8 /home/omen-hp-pc/S4/Systeme_d_info/Note-ITU/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#9 /home/omen-hp-pc/S4/Systeme_d_info/Note-ITU/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#10 /home/omen-hp-pc/S4/Systeme_d_info/Note-ITU/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#11 {main}
+CRITICAL - 2026-04-29 08:06:39 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost'
+[Method: GET, Route: form]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 3 APPPATH/Models/NotesModel.php(128): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH/Controllers/Home.php(26): App\Models\NotesModel->getAllUE()
+ 5 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Home->form()
+ 6 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-04-29 08:07:17 --> CodeIgniter\Exceptions\ModelException: "App\Models\ReleveNotesModel" model class does not specify a Primary Key.
+[Method: GET, Route: notes/releve/123]
+in SYSTEMPATH/Model.php on line 591.
+ 1 SYSTEMPATH/Model.php(591): CodeIgniter\Exceptions\ModelException::forNoPrimaryKey()
+ 2 SYSTEMPATH/Model.php(751): CodeIgniter\Model->builder()
+ 3 APPPATH/Controllers/Notes.php(73): CodeIgniter\Model->__call()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Notes->releve()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-04-29 08:07:21 --> CodeIgniter\Exceptions\ModelException: "App\Models\ReleveNotesModel" model class does not specify a Primary Key.
+[Method: GET, Route: notes/releve/1]
+in SYSTEMPATH/Model.php on line 591.
+ 1 SYSTEMPATH/Model.php(591): CodeIgniter\Exceptions\ModelException::forNoPrimaryKey()
+ 2 SYSTEMPATH/Model.php(751): CodeIgniter\Model->builder()
+ 3 APPPATH/Controllers/Notes.php(73): CodeIgniter\Model->__call()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Notes->releve()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-04-29 08:07:28 --> CodeIgniter\Exceptions\ModelException: "App\Models\ReleveNotesModel" model class does not specify a Primary Key.
+[Method: GET, Route: notes/releve/1]
+in SYSTEMPATH/Model.php on line 591.
+ 1 SYSTEMPATH/Model.php(591): CodeIgniter\Exceptions\ModelException::forNoPrimaryKey()
+ 2 SYSTEMPATH/Model.php(751): CodeIgniter\Model->builder()
+ 3 APPPATH/Controllers/Notes.php(73): CodeIgniter\Model->__call()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Notes->releve()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-04-29 08:12:38 --> CodeIgniter\Exceptions\ModelException: "App\Models\ReleveNotesModel" model class does not specify a Primary Key.
+[Method: GET, Route: notes/releve/1]
+in SYSTEMPATH/Model.php on line 591.
+ 1 SYSTEMPATH/Model.php(591): CodeIgniter\Exceptions\ModelException::forNoPrimaryKey()
+ 2 SYSTEMPATH/Model.php(751): CodeIgniter\Model->builder()
+ 3 APPPATH/Controllers/Notes.php(73): CodeIgniter\Model->__call()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Notes->releve()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-04-29 08:12:39 --> CodeIgniter\Exceptions\ModelException: "App\Models\ReleveNotesModel" model class does not specify a Primary Key.
+[Method: GET, Route: notes/releve/1]
+in SYSTEMPATH/Model.php on line 591.
+ 1 SYSTEMPATH/Model.php(591): CodeIgniter\Exceptions\ModelException::forNoPrimaryKey()
+ 2 SYSTEMPATH/Model.php(751): CodeIgniter\Model->builder()
+ 3 APPPATH/Controllers/Notes.php(73): CodeIgniter\Model->__call()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Notes->releve()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-04-29 08:12:39 --> CodeIgniter\Exceptions\ModelException: "App\Models\ReleveNotesModel" model class does not specify a Primary Key.
+[Method: GET, Route: notes/releve/1]
+in SYSTEMPATH/Model.php on line 591.
+ 1 SYSTEMPATH/Model.php(591): CodeIgniter\Exceptions\ModelException::forNoPrimaryKey()
+ 2 SYSTEMPATH/Model.php(751): CodeIgniter\Model->builder()
+ 3 APPPATH/Controllers/Notes.php(73): CodeIgniter\Model->__call()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Notes->releve()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-04-29 08:12:39 --> CodeIgniter\Exceptions\ModelException: "App\Models\ReleveNotesModel" model class does not specify a Primary Key.
+[Method: GET, Route: notes/releve/1]
+in SYSTEMPATH/Model.php on line 591.
+ 1 SYSTEMPATH/Model.php(591): CodeIgniter\Exceptions\ModelException::forNoPrimaryKey()
+ 2 SYSTEMPATH/Model.php(751): CodeIgniter\Model->builder()
+ 3 APPPATH/Controllers/Notes.php(73): CodeIgniter\Model->__call()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Notes->releve()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-04-29 08:12:39 --> CodeIgniter\Exceptions\ModelException: "App\Models\ReleveNotesModel" model class does not specify a Primary Key.
+[Method: GET, Route: notes/releve/1]
+in SYSTEMPATH/Model.php on line 591.
+ 1 SYSTEMPATH/Model.php(591): CodeIgniter\Exceptions\ModelException::forNoPrimaryKey()
+ 2 SYSTEMPATH/Model.php(751): CodeIgniter\Model->builder()
+ 3 APPPATH/Controllers/Notes.php(73): CodeIgniter\Model->__call()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Notes->releve()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-04-29 08:12:39 --> CodeIgniter\Exceptions\ModelException: "App\Models\ReleveNotesModel" model class does not specify a Primary Key.
+[Method: GET, Route: notes/releve/1]
+in SYSTEMPATH/Model.php on line 591.
+ 1 SYSTEMPATH/Model.php(591): CodeIgniter\Exceptions\ModelException::forNoPrimaryKey()
+ 2 SYSTEMPATH/Model.php(751): CodeIgniter\Model->builder()
+ 3 APPPATH/Controllers/Notes.php(73): CodeIgniter\Model->__call()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Notes->releve()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-04-29 08:12:39 --> CodeIgniter\Exceptions\ModelException: "App\Models\ReleveNotesModel" model class does not specify a Primary Key.
+[Method: GET, Route: notes/releve/1]
+in SYSTEMPATH/Model.php on line 591.
+ 1 SYSTEMPATH/Model.php(591): CodeIgniter\Exceptions\ModelException::forNoPrimaryKey()
+ 2 SYSTEMPATH/Model.php(751): CodeIgniter\Model->builder()
+ 3 APPPATH/Controllers/Notes.php(73): CodeIgniter\Model->__call()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Notes->releve()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-04-29 08:12:43 --> CodeIgniter\Exceptions\ModelException: "App\Models\ReleveNotesModel" model class does not specify a Primary Key.
+[Method: GET, Route: notes/releve/1]
+in SYSTEMPATH/Model.php on line 591.
+ 1 SYSTEMPATH/Model.php(591): CodeIgniter\Exceptions\ModelException::forNoPrimaryKey()
+ 2 SYSTEMPATH/Model.php(751): CodeIgniter\Model->builder()
+ 3 APPPATH/Controllers/Notes.php(73): CodeIgniter\Model->__call()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Notes->releve()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-04-29 08:12:43 --> CodeIgniter\Exceptions\ModelException: "App\Models\ReleveNotesModel" model class does not specify a Primary Key.
+[Method: GET, Route: notes/releve/1]
+in SYSTEMPATH/Model.php on line 591.
+ 1 SYSTEMPATH/Model.php(591): CodeIgniter\Exceptions\ModelException::forNoPrimaryKey()
+ 2 SYSTEMPATH/Model.php(751): CodeIgniter\Model->builder()
+ 3 APPPATH/Controllers/Notes.php(73): CodeIgniter\Model->__call()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Notes->releve()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-04-29 08:12:43 --> CodeIgniter\Exceptions\ModelException: "App\Models\ReleveNotesModel" model class does not specify a Primary Key.
+[Method: GET, Route: notes/releve/1]
+in SYSTEMPATH/Model.php on line 591.
+ 1 SYSTEMPATH/Model.php(591): CodeIgniter\Exceptions\ModelException::forNoPrimaryKey()
+ 2 SYSTEMPATH/Model.php(751): CodeIgniter\Model->builder()
+ 3 APPPATH/Controllers/Notes.php(73): CodeIgniter\Model->__call()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Notes->releve()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()

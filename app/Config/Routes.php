@@ -16,6 +16,9 @@ $routes->get('/notes/new', 'Notes::new');
 $routes->get('/notes/create', 'Notes::new');
 $routes->post('/notes/create', 'Notes::create');
 
+// Relevé de notes
+$routes->get('/notes/releve/(:num)', 'Notes::releve/$1');
+
 // Etudiants and Details
 $routes->get('/etudiants', 'EtudiantController::index');
 $routes->get('/notes/etudiant/(:num)', 'EtudiantController::details/$1');
