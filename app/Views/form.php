@@ -194,7 +194,7 @@
                     </div>
                     <div>
                       <label class="field-label">Semestre <span class="required">*</span></label>
-                      <select name="semestre" required>
+                      <select name="semestre" id="semestreSelect" onchange="updateUEList()" required>
                         <option value="">— Sélectionner —</option>
                         <option value="S3" <?= set_select('semestre', 'S3') ?>>S3</option>
                         <option value="S4" <?= set_select('semestre', 'S4') ?>>S4</option>
@@ -202,13 +202,8 @@
                     </div>
                     <div>
                       <label class="field-label">UE <span class="required">*</span></label>
-                      <select name="ue" required>
-                        <option value="">— Sélectionner —</option>
-                        <?php if (!empty($ues)): ?>
-                          <?php foreach ($ues as $ue): ?>
-                            <option value="<?= $ue['libelle'] ?>" <?= set_select('ue', $ue['libelle']) ?>><?= $ue['code'] ?> - <?= $ue['libelle'] ?></option>
-                          <?php endforeach; ?>
-                        <?php endif; ?>
+                      <select name="ue" id="ueSelect" required>
+                        <option value="">— Sélectionner d'abord un semestre —</option>
                       </select>
                     </div>
                     <div>
@@ -231,6 +226,60 @@
               </div>
             </div>
           </div>
+          <script>
+            // Données des UE par semestre
+            const uesBySemestre = {
+              'S3': <?= $uesBySemestre['S3'] ?>,
+              'S4': <?= $uesBySemestre['S4'] ?>
+            };
+
+            function updateUEList() {
+              const semestreSelect = document.getElementById('semestreSelect');
+              const ueSelect = document.getElementById('ueSelect');
+              const selectedSemestre = semestreSelect.value;
+
+              // Vider le select des UE
+              ueSelect.innerHTML = '';
+
+              if (!selectedSemestre) {
+                ueSelect.innerHTML = '<option value="">— Sélectionner d\'abord un semestre —</option>';
+                return;
+              }
+
+              // Ajouter l'option de sélection
+              const defaultOption = document.createElement('option');
+              defaultOption.value = '';
+              defaultOption.textContent = '— Sélectionner —';
+              ueSelect.appendChild(defaultOption);
+
+              // Récupérer les UE du semestre sélectionné
+              const uesForSemestre = uesBySemestre[selectedSemestre] || [];
+
+              if (uesForSemestre.length === 0) {
+                const noOption = document.createElement('option');
+                noOption.disabled = true;
+                noOption.textContent = 'Aucune UE disponible';
+                ueSelect.appendChild(noOption);
+                return;
+              }
+
+              // Ajouter les options
+              uesForSemestre.forEach(ue => {
+                const option = document.createElement('option');
+                option.value = ue.libelle;
+                option.textContent = ue.code + ' - ' + ue.libelle;
+                ueSelect.appendChild(option);
+              });
+            }
+
+            // Initialiser à l'ouverture de la page si un semestre est sélectionné
+            window.addEventListener('DOMContentLoaded', function() {
+              const semestreValue = document.getElementById('semestreSelect').value;
+              if (semestreValue) {
+                updateUEList();
+              }
+            });
+          </script>
           <script src="<?= base_url('public/script.js') ?>"></script>
         </body>
 

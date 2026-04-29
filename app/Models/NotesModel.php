@@ -128,4 +128,52 @@ class NotesModel extends Model
             ->get()
             ->getResultArray();
     }
+
+    /**
+     * Récupère les UE pour un semestre donné
+     */
+    public function getUEBySemestre($semestNumber)
+    {
+        $db = \Config\Database::connect();
+        
+        // Récupérer les UE directes du semestre
+        $directUEs = $db->table('ue')
+            ->join('programme', 'ue.id = programme.ue_id')
+            ->join('semestre', 'programme.semestre_id = semestre.id')
+            ->where('semestre.numero', $semestNumber)
+            ->where('programme.ue_id IS NOT NULL')
+            ->select('DISTINCT ue.id, ue.code, ue.libelle, ue.credits')
+            ->get()
+            ->getResultArray();
+
+        // Récupérer les UE via les groupes d'UE du semestre
+        $groupUEs = $db->table('ue')
+            ->join('groupe_ue_element', 'ue.id = groupe_ue_element.ue_id')
+            ->join('groupe_ue', 'groupe_ue_element.groupe_ue_id = groupe_ue.id')
+            ->join('programme', 'groupe_ue.id = programme.groupe_ue_id')
+            ->join('semestre', 'programme.semestre_id = semestre.id')
+            ->where('semestre.numero', $semestNumber)
+            ->select('DISTINCT ue.id, ue.code, ue.libelle, ue.credits')
+            ->get()
+            ->getResultArray();
+
+        // Fusionner et dédupliquer
+        $allUEs = array_merge($directUEs, $groupUEs);
+        $uniqueUEs = [];
+        $seen = [];
+        
+        foreach ($allUEs as $ue) {
+            if (!isset($seen[$ue['id']])) {
+                $seen[$ue['id']] = true;
+                $uniqueUEs[] = $ue;
+            }
+        }
+
+        // Trier par libellé
+        usort($uniqueUEs, function($a, $b) {
+            return strcmp($a['libelle'], $b['libelle']);
+        });
+
+        return $uniqueUEs;
+    }
 }
