@@ -23,12 +23,23 @@ CREATE TABLE semestre (
     numero INT
 );
 
+
 CREATE TABLE etudiant (
     id INT PRIMARY KEY AUTO_INCREMENT,
     numero_etu VARCHAR(50) UNIQUE NOT NULL,
     nom VARCHAR(255) NOT NULL,
     prenom VARCHAR(255) NOT NULL
 );
+
+-- =========================
+-- ETUDIANTS D'EXEMPLE
+-- =========================
+INSERT INTO etudiant (numero_etu, nom, prenom) VALUES
+('ETU0001', 'Randriamampionona', 'Feno'),
+('ETU0002', 'Rakotoarisoa', 'Miora'),
+('ETU0003', 'Rasoanaivo', 'Tiana'),
+('ETU0004', 'Andrianarivelo', 'Hery'),
+('ETU0005', 'Ramanantsoa', 'Soa');
 
 
 
