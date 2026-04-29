@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="/style.css" />
 </head>
 
+<?php helper('form'); ?>
+
 <body>
 
   <div class="app">
@@ -202,10 +204,11 @@
                       <label class="field-label">UE <span class="required">*</span></label>
                       <select name="ue" required>
                         <option value="">— Sélectionner —</option>
-                        <option value="Administrateur" <?= set_select('ue', 'Administrateur') ?>>Administrateur</option>
-                        <option value="Gestionnaire" <?= set_select('ue', 'Gestionnaire') ?>>Gestionnaire</option>
-                        <option value="Opérateur" <?= set_select('ue', 'Opérateur') ?>>Opérateur</option>
-                        <option value="Auditeur" <?= set_select('ue', 'Auditeur') ?>>Auditeur</option>
+                        <?php if (!empty($ues)): ?>
+                          <?php foreach ($ues as $ue): ?>
+                            <option value="<?= $ue['libelle'] ?>" <?= set_select('ue', $ue['libelle']) ?>><?= $ue['code'] ?> - <?= $ue['libelle'] ?></option>
+                          <?php endforeach; ?>
+                        <?php endif; ?>
                       </select>
                     </div>
                     <div>
@@ -232,10 +235,7 @@
         </body>
 
         </html>
-        <label class="radio-option"><input type="radio" name="contrat" value="cdi" checked /> CDI</label>
-        <label class="radio-option"><input type="radio" name="contrat" value="cdd" /> CDD</label>
-        <label class="radio-option"><input type="radio" name="contrat" value="stage" /> Stage</label>
-        <label class="radio-option"><input type="radio" name="contrat" value="freelance" /> Freelance</label>
+
       </div>
   </div>
   <div>

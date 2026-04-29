@@ -116,4 +116,16 @@ class NotesModel extends Model
             ->get()
             ->getResultArray();
     }
+
+    /**
+     * Récupère toutes les UE
+     */
+    public function getAllUE()
+    {
+        $db = \Config\Database::connect();
+        return $db->table('ue')
+            ->orderBy('libelle', 'ASC')
+            ->get()
+            ->getResultArray();
+    }
 }

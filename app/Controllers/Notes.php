@@ -11,7 +11,11 @@ class Notes extends BaseController
      */
     public function new()
     {
-        return view('form');
+        $model = model('NotesModel');
+        $data = [
+            'ues' => $model->getAllUE(),
+        ];
+        return view('form', $data);
     }
 
     /**
