@@ -154,10 +154,9 @@
           <thead>
             <tr>
               <th class="td-check"><input type="checkbox" /></th>
-              <th class="sortable">Matricule</th>
+              <th class="sortable">Numéro Étudiant</th>
               <th class="sortable">Nom</th>
-              <th class="sortable">Prénoms</th>
-              <th class="sortable">Parcours</th>
+              <th class="sortable">Prénom</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -165,10 +164,9 @@
             <?php foreach ($etudiants as $etudiant): ?>
             <tr>
               <td><input type="checkbox" /></td>
-              <td style="font-family:monospace;font-weight:600"><?= esc($etudiant['matricule']) ?></td>
+              <td style="font-family:monospace;font-weight:600"><?= esc($etudiant['numero_etu']) ?></td>
               <td style="font-weight:600"><?= esc($etudiant['nom']) ?></td>
-              <td><?= esc($etudiant['prenoms']) ?></td>
-              <td><span class="badge badge-blue"><?= esc($etudiant['parcours_nom']) ?></span></td>
+              <td><?= esc($etudiant['prenom']) ?></td>
               <td>
                 <div class="td-actions">
                   <a href="/notes/etudiant/<?= esc($etudiant['id']) ?>" class="btn btn-primary btn-sm" style="padding:4px 8px;font-size:12px;">Voir notes</a>

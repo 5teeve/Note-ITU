@@ -3,7 +3,6 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use CodeIgniter\HTTP\ResponseInterface;
 
 class EtudiantController extends BaseController
 {
@@ -12,7 +11,8 @@ class EtudiantController extends BaseController
         $model = new \App\Models\EtudiantModel();
         
         $data = [
-            'etudiants' => $model->getEtudiantsWithParcours()
+            'titre'     => 'Liste des étudiants',
+            'etudiants' => $model->getEtudiants()
         ];
         
         return view('etudiants', $data);
