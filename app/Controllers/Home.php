@@ -21,7 +21,15 @@ class Home extends BaseController
 
     public function form(): string
     {
-        return view('form');
+        $model = model('NotesModel');
+        $data = [
+            'ues' => $model->getAllUE(),
+            'uesBySemestre' => [
+                'S3' => json_encode($model->getUEBySemestre(3)),
+                'S4' => json_encode($model->getUEBySemestre(4)),
+            ],
+        ];
+        return view('form', $data);
     }
 
     public function login(): string

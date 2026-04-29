@@ -14,47 +14,42 @@
 ## 2. [x] Conception de la base de données (étape critique)
 
 ### Tables à créer :
-- [x] `parcours`
+- [x] `users`
+  - id
+  - username
+  - password
+
+- [x] `etudiants`
   - id
   - nom
+  - prenom
 
-- [x] `semestre`
+- [x] `matieres`
   - id
-  - numero
+  - nom
+  - optionnelle (booléen)
 
-- [x] `ue`
+- [x] `semestres`
   - id
-  - code
-  - libelle
-  - credits
+  - nom (S3, S4)
 
-- [x] `groupe_ue`
+- [x] `notes`
   - id
-  - libelle
-  - nb_choix
-
-- [x] `groupe_ue_element`
-  - id
-  - groupe_ue_id
-  - ue_id
-
-- [x] `programme`
-  - id
-  - parcours_id
+  - etudiant_id
+  - matiere_id
   - semestre_id
-  - ue_id
-  - groupe_ue_id
+  - valeur
 
 ### Relations :
-- [x] Un groupe d'UE (groupe_ue) contient plusieurs éléments (groupe_ue_element) liant à des UEs
-- [x] Le programme appartient à un parcours et un semestre
-- [x] Le programme peut correspondre à une UE spécifique OU à un groupe d'UE (exclusivement)
+- [x] Un étudiant possède plusieurs notes
+- [x] Une matière possède plusieurs notes
+- [x] Une note appartient à un seul semestre
+- [x] Une matière peut être optionnelle ou non
 
 ### Vérifications :
 - [x] Clés primaires définies
 - [x] Clés étrangères cohérentes
 - [x] Cohérence des types de données
-- [x] Contrainte CHECK (ue_id XOR groupe_ue_id) définie sur la table programme
 
 ---
 
@@ -73,9 +68,9 @@
 
 ## 4. Gestion des étudiants
 
-- Créer un modèle `EtudiantModel`
-- Créer un contrôleur `EtudiantController`
-- Implémenter :
+- [X] Créer un modèle `EtudiantModel`
+- [X] Créer un contrôleur `EtudiantController`
+- [X] Implémenter :
   - affichage de la liste des étudiants
 - Ajouter interaction :
   - clic sur un étudiant → redirection vers ses notes
@@ -105,6 +100,11 @@
 - Créer une page de détail étudiant
 - Afficher :
   - liste des notes associées
+  - on peut modifier
+  - supprimer
+  - utilise left join, les sans notes sont 0
+  - une gestion strict des notes (pour une matière, on prend la note maximale
+pour les matières optionnels, on prend la matière qui a la meilleure note)
 - Ajouter filtrage :
   - par semestre (S3 / S4)
 - Trier les données si nécessaire
