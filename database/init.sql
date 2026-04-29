@@ -223,3 +223,13 @@ INSERT INTO programme VALUES
 (31, 3, 2, 14, NULL),
 (32, 3, 2, NULL, 6),
 (35, 3, 2, 16, NULL); -- MAO obligatoire
+
+-- =========================
+-- ETUDIANTS D'EXEMPLE
+-- =========================
+INSERT INTO etudiant (numero_etu, nom, prenom) VALUES
+('ETU0001', 'Randriamampionona', 'Feno'),
+('ETU0002', 'Rakotoarisoa', 'Miora'),
+('ETU0003', 'Rasoanaivo', 'Tiana'),
+('ETU0004', 'Andrianarivelo', 'Hery'),
+('ETU0005', 'Ramanantsoa', 'Soa');
