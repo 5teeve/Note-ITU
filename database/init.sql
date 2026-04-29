@@ -1,4 +1,5 @@
-
+create database note;
+use note;
 DROP TABLE IF EXISTS note;
 DROP TABLE IF EXISTS etudiant;
 DROP TABLE IF EXISTS programme;
