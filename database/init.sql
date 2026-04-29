@@ -1,4 +1,7 @@
-
+create database note;
+use note;
+DROP TABLE IF EXISTS note;
+DROP TABLE IF EXISTS etudiant;
 DROP TABLE IF EXISTS programme;
 DROP TABLE IF EXISTS groupe_ue_element;
 DROP TABLE IF EXISTS groupe_ue;
@@ -20,12 +23,44 @@ CREATE TABLE semestre (
     numero INT
 );
 
+
+CREATE TABLE etudiant (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    numero_etu VARCHAR(50) UNIQUE NOT NULL,
+    nom VARCHAR(255) NOT NULL,
+    prenom VARCHAR(255) NOT NULL
+);
+
+-- =========================
+-- ETUDIANTS D'EXEMPLE
+-- =========================
+INSERT INTO etudiant (numero_etu, nom, prenom) VALUES
+('ETU0001', 'Randriamampionona', 'Feno'),
+('ETU0002', 'Rakotoarisoa', 'Miora'),
+('ETU0003', 'Rasoanaivo', 'Tiana'),
+('ETU0004', 'Andrianarivelo', 'Hery'),
+('ETU0005', 'Ramanantsoa', 'Soa');
+
+
+
 CREATE TABLE ue (
     id INT PRIMARY KEY,
     code VARCHAR(20),
     libelle VARCHAR(255),
     credits INT
 );
+
+CREATE TABLE note (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    note DECIMAL(5, 2),
+    ue_id INT NOT NULL,
+    id_etudiant INT NOT NULL,
+    semestre_id INT NOT NULL,
+    FOREIGN KEY (id_etudiant) REFERENCES etudiant(id),
+    FOREIGN KEY (semestre_id) REFERENCES semestre(id),
+    FOREIGN KEY (ue_id) REFERENCES ue(id)
+);
+
 
 CREATE TABLE groupe_ue (
     id INT PRIMARY KEY,
@@ -188,16 +223,3 @@ INSERT INTO programme VALUES
 (31, 3, 2, 14, NULL),
 (32, 3, 2, NULL, 6),
 (35, 3, 2, 16, NULL); -- MAO obligatoire
-CREATE TABLE etudiant (
-    id SERIAL PRIMARY KEY,
-    matricule VARCHAR(20) UNIQUE,
-    nom VARCHAR(100),
-    prenoms VARCHAR(100),
-    parcours_id INT REFERENCES parcours(id)
-);
-
-INSERT INTO etudiant (matricule, nom, prenoms, parcours_id) VALUES
-('ETU001', 'RAKOTO', 'Jean', 1),
-('ETU002', 'RABE', 'Paul', 2),
-('ETU003', 'RASOA', 'Marie', 3),
-('ETU004', 'RANDRIA', 'Mika', 1);

@@ -1,0 +1,50 @@
+ERROR - 2026-04-29 07:18:28 --> Error connecting to the database: mysqli_sql_exception: Access denied for user ''@'localhost' in /home/steeve/Documents/BOSS/S4/SI/Note-ITU/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /home/steeve/Documents/BOSS/S4/SI/Note-ITU/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#1 /home/steeve/Documents/BOSS/S4/SI/Note-ITU/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /home/steeve/Documents/BOSS/S4/SI/Note-ITU/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /home/steeve/Documents/BOSS/S4/SI/Note-ITU/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /home/steeve/Documents/BOSS/S4/SI/Note-ITU/system/Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/steeve/Documents/BOSS/S4/SI/Note-ITU/system/BaseModel.php(676): CodeIgniter\Model->doFindAll()
+#6 /home/steeve/Documents/BOSS/S4/SI/Note-ITU/app/Models/EtudiantModel.php(21): CodeIgniter\BaseModel->findAll()
+#7 /home/steeve/Documents/BOSS/S4/SI/Note-ITU/app/Controllers/EtudiantController.php(15): App\Models\EtudiantModel->getEtudiantsWithParcours()
+#8 /home/steeve/Documents/BOSS/S4/SI/Note-ITU/system/CodeIgniter.php(951): App\Controllers\EtudiantController->index()
+#9 /home/steeve/Documents/BOSS/S4/SI/Note-ITU/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#10 /home/steeve/Documents/BOSS/S4/SI/Note-ITU/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#11 /home/steeve/Documents/BOSS/S4/SI/Note-ITU/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#12 /home/steeve/Documents/BOSS/S4/SI/Note-ITU/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#13 /home/steeve/Documents/BOSS/S4/SI/Note-ITU/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user ''@'localhost' in /home/steeve/Documents/BOSS/S4/SI/Note-ITU/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /home/steeve/Documents/BOSS/S4/SI/Note-ITU/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /home/steeve/Documents/BOSS/S4/SI/Note-ITU/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home/steeve/Documents/BOSS/S4/SI/Note-ITU/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#3 /home/steeve/Documents/BOSS/S4/SI/Note-ITU/system/Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+#4 /home/steeve/Documents/BOSS/S4/SI/Note-ITU/system/BaseModel.php(676): CodeIgniter\Model->doFindAll()
+#5 /home/steeve/Documents/BOSS/S4/SI/Note-ITU/app/Models/EtudiantModel.php(21): CodeIgniter\BaseModel->findAll()
+#6 /home/steeve/Documents/BOSS/S4/SI/Note-ITU/app/Controllers/EtudiantController.php(15): App\Models\EtudiantModel->getEtudiantsWithParcours()
+#7 /home/steeve/Documents/BOSS/S4/SI/Note-ITU/system/CodeIgniter.php(951): App\Controllers\EtudiantController->index()
+#8 /home/steeve/Documents/BOSS/S4/SI/Note-ITU/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#9 /home/steeve/Documents/BOSS/S4/SI/Note-ITU/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#10 /home/steeve/Documents/BOSS/S4/SI/Note-ITU/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /home/steeve/Documents/BOSS/S4/SI/Note-ITU/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#12 /home/steeve/Documents/BOSS/S4/SI/Note-ITU/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#13 {main}
+CRITICAL - 2026-04-29 07:18:28 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user ''@'localhost'
+[Method: GET, Route: etudiants]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll()
+ 5 APPPATH/Models/EtudiantModel.php(21): CodeIgniter\BaseModel->findAll()
+ 6 APPPATH/Controllers/EtudiantController.php(15): App\Models\EtudiantModel->getEtudiantsWithParcours()
+ 7 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\EtudiantController->index()
+ 8 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
