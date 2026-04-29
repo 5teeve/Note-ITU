@@ -188,3 +188,16 @@ INSERT INTO programme VALUES
 (31, 3, 2, 14, NULL),
 (32, 3, 2, NULL, 6),
 (35, 3, 2, 16, NULL); -- MAO obligatoire
+CREATE TABLE etudiant (
+    id SERIAL PRIMARY KEY,
+    matricule VARCHAR(20) UNIQUE,
+    nom VARCHAR(100),
+    prenoms VARCHAR(100),
+    parcours_id INT REFERENCES parcours(id)
+);
+
+INSERT INTO etudiant (matricule, nom, prenoms, parcours_id) VALUES
+('ETU001', 'RAKOTO', 'Jean', 1),
+('ETU002', 'RABE', 'Paul', 2),
+('ETU003', 'RASOA', 'Marie', 3),
+('ETU004', 'RANDRIA', 'Mika', 1);
