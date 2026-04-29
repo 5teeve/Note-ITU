@@ -105,6 +105,11 @@
 - Créer une page de détail étudiant
 - Afficher :
   - liste des notes associées
+  - on peut modifier
+  - supprimer
+  - utilise left join, les sans notes sont 0
+  - une gestion strict des notes (pour une matière, on prend la note maximale
+pour les matières optionnels, on prend la matière qui a la meilleure note)
 - Ajouter filtrage :
   - par semestre (S3 / S4)
 - Trier les données si nécessaire
