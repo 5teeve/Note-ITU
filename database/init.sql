@@ -1,4 +1,6 @@
 
+DROP TABLE IF EXISTS note;
+DROP TABLE IF EXISTS etudiant;
 DROP TABLE IF EXISTS programme;
 DROP TABLE IF EXISTS groupe_ue_element;
 DROP TABLE IF EXISTS groupe_ue;
@@ -20,12 +22,33 @@ CREATE TABLE semestre (
     numero INT
 );
 
+CREATE TABLE etudiant (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    numero_etu VARCHAR(50) UNIQUE NOT NULL,
+    nom VARCHAR(255) NOT NULL,
+    prenom VARCHAR(255) NOT NULL
+);
+
+
+
 CREATE TABLE ue (
     id INT PRIMARY KEY,
     code VARCHAR(20),
     libelle VARCHAR(255),
     credits INT
 );
+
+CREATE TABLE note (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    note DECIMAL(5, 2),
+    ue_id INT NOT NULL,
+    id_etudiant INT NOT NULL,
+    semestre_id INT NOT NULL,
+    FOREIGN KEY (id_etudiant) REFERENCES etudiant(id),
+    FOREIGN KEY (semestre_id) REFERENCES semestre(id),
+    FOREIGN KEY (ue_id) REFERENCES ue(id)
+);
+
 
 CREATE TABLE groupe_ue (
     id INT PRIMARY KEY,
